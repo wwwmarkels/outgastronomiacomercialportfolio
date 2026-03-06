@@ -459,7 +459,6 @@
       position: relative;
     }
 
-    /* Efeito de fade nas bordas */
     .portfolio-marquee-wrap::before,
     .portfolio-marquee-wrap::after {
       content: "";
@@ -698,14 +697,16 @@
 
     /* RESPONSIVIDADE */
     @media (max-width: 1024px) {
-      section { padding: clamp(64px, 8vw, 120px) 0; }
-      .hero { grid-template-columns: 1fr; text-align: center; gap: clamp(28px, 6vw, 60px); padding: calc(clamp(128px, 14vw, 170px) + var(--safe-top)) 0 clamp(56px, 7vw, 90px); }
-      .hero p { margin: 0 auto 36px; }
-      .hero-actions { justify-content: center; }
-      .hero-img { max-width: 720px; margin: 0 auto; transform: none; }
+      /* Manteve texto à esquerda nas telas intermediárias também */
+      .hero { grid-template-columns: 1fr; text-align: left; gap: clamp(28px, 6vw, 60px); padding: calc(clamp(128px, 14vw, 170px) + var(--safe-top)) 0 clamp(56px, 7vw, 90px); }
+      .hero p { margin: 0 0 36px 0; max-width: 90%; }
+      .hero-actions { justify-content: flex-start; }
+      .hero-img { max-width: 720px; transform: none; }
+      .hero-visual { margin-top: 20px; }
       .hero-visual:hover .hero-img { transform: none; }
-      .hero-badge { left: 12px; bottom: -16px; }
+      .hero-badge { left: -16px; bottom: -16px; }
       
+      section { padding: clamp(64px, 8vw, 120px) 0; }
       .attack-grid { grid-template-columns: 1fr; }
       .founders-block { grid-template-columns: 1fr; padding: 60px 40px; text-align: center; gap: 46px; }
       .founders-profiles { justify-content: center; }
@@ -729,16 +730,16 @@
       .section-header { margin-bottom: 56px; }
       .section-header h2 { font-size: clamp(32px, 8vw, 40px); }
       
-      .hero { padding: calc(120px + var(--safe-top)) 0 56px; }
-      .hero h1 { font-size: clamp(34px, 10vw, 42px); line-height: 1.05; margin-bottom: 18px; }
-      .hero p { font-size: 17px; margin-bottom: 28px; max-width: 620px; }
-      .btn { width: 100%; padding: 18px 24px; font-size: 13px; min-height: 52px; }
-      .hero-actions { flex-direction: column; width: 100%; }
+      /* Ajuste Hero: Alinhado à esquerda, com respiro aprimorado */
+      .hero { padding: calc(130px + var(--safe-top)) 0 56px; text-align: left; }
+      .hero-content { display: flex; flex-direction: column; align-items: flex-start; } 
+      .hero h1 { font-size: clamp(34px, 10vw, 42px); line-height: 1.1; margin-bottom: 20px; text-align: left; }
+      .hero p { font-size: 17px; line-height: 1.6; margin-bottom: 36px; max-width: 100%; text-align: left; padding-right: 10px; }
+      .btn { width: 100%; padding: 18px 24px; font-size: 13px; min-height: 52px; text-align: center; }
+      .hero-actions { flex-direction: column; width: 100%; gap: 14px; }
       
-      /* Badge reposicionado para o topo no mobile para não esmagar conteúdo */
       .hero-badge { width: 90px; height: 90px; font-size: 9px; top: -15px; left: -10px; bottom: auto; }
       
-      /* Respiro maior nos cards mobile */
       .attack-card { padding: 48px 24px; }
       .founders-block { padding: 56px 24px; border-radius: 20px; gap: 40px; }
       .method-card { padding: 48px 24px; }
@@ -752,7 +753,6 @@
       .cta-area { padding: 78px 0; }
       .calendar-container { height: 820px; border-radius: 18px; }
       
-      /* Footer totalmente centralizado no mobile */
       .footer-nav { flex-direction: column; gap: 40px; align-items: center; }
       .footer-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
       .footer-col a:hover { padding-left: 0; color: var(--primary); }
